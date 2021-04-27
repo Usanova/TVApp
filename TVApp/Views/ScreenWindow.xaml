@@ -1,0 +1,21 @@
+﻿<baseWindowNs:ViewBase x:Class="TVApp.Views.ScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:baseWindowNs="clr-namespace:TVApp"
+        xmlns:userControls="clr-namespace:TVApp.UserElements"
+        xmlns:local="clr-namespace:TVApp.Views"
+        mc:Ignorable="d"
+        Height="350" Width="500" WindowStartupLocation="CenterScreen" >
+    <Canvas Background="Black">
+        <StackPanel Orientation="Horizontal" Canvas.Left="20" Canvas.Top="20" >
+            <Label FontSize="20" Foreground="White" FontWeight="Bold"
+               Content="{Binding Path=Channel.Number}"/>
+            <Label FontSize="20" Foreground="White" FontWeight="Bold"
+               Content="{Binding Path=Channel.Name}"/>
+        </StackPanel>
+        
+        <userControls:CommandSender Width="400" Canvas.Left="50" Canvas.Bottom="50"></userControls:CommandSender>
+    </Canvas>
+</baseWindowNs:ViewBase>

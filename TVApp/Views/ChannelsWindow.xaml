@@ -1,0 +1,45 @@
+﻿<baseWindowNs:ViewBase x:Class="TVApp.Views.ChannelsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TVApp.Views"
+        xmlns:userControls="clr-namespace:TVApp.UserElements"
+        xmlns:baseWindowNs="clr-namespace:TVApp"
+        mc:Ignorable="d"
+        Height="350" Width="500" Background="#FF75DAD8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <StackPanel Margin="5,10,5,5" Orientation="Horizontal">
+            <TextBlock FontSize="16" FontWeight="Bold" Width="50" Text="№" Margin="0,0,10,0"/>
+            <TextBlock FontSize="16" FontWeight="Bold" Width="170" Text="Название" Margin="0,0,10,0" />
+            <TextBlock FontSize="16" FontWeight="Bold" Width="180" Text="Текущая передача"/>
+        </StackPanel>
+        <ListBox Background="#FFC3F1F0" ItemsSource="{Binding Channels}" Height="230">
+            <ListBox.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Black" />
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <TextBlock FontSize="16" Width="50" Text="{Binding Path=Number}" Margin="0,0,10,0"/>
+                        <TextBlock FontSize="16" Width="170" Text="{Binding Path=Name}" Margin="0,0,10,0" />
+                        <TextBlock FontSize="16" Width="180" Text="{Binding Path=CurrentProgram}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsFocus}" Value="True">
+                            <Setter Property="Background" Value="#FF75DAD8"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsFocus}" Value="False">
+                            <Setter Property="Background" Value="#FFC3F1F0"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <userControls:CommandSender Margin="0,10" Width="400"></userControls:CommandSender>
+    </StackPanel>
+</baseWindowNs:ViewBase>

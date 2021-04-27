@@ -1,0 +1,36 @@
+﻿<baseWindowNs:ViewBase x:Class="TVApp.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:userControls="clr-namespace:TVApp.UserElements"
+        xmlns:local="clr-namespace:TVApp.Views"
+        xmlns:baseWindowNs="clr-namespace:TVApp"
+        mc:Ignorable="d"
+        Height="330" Width="400" Background="#FFC3F1F0" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Border Margin="30,30,30,15" Height="200" BorderBrush="#FF98BFF7" BorderThickness="1" Background="White" Opacity="0.8">
+            <StackPanel Orientation="Vertical">
+                <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontFamily="Harlow Solid Italic" FontSize="24">
+                    Добро пожаловать
+                </Label>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label FontWeight="Bold" FontSize="14" Width="65">Email</Label>
+                    <Border Width="240" Background="#FF98BFF7">
+                        <TextBox x:Name="tbEmail" Background="#FFF9F3F3" FontSize="16" Text="{Binding Email, Mode=TwoWay}"></TextBox>
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label FontWeight="Bold" FontSize="14" Width="65">Пароль</Label>
+                    <Border Width="240" Background="#FF98BFF7">
+                        <TextBox x:Name="tbPassword" Background="#FFF9F3F3" FontSize="16" Text="{Binding Email, Mode=TwoWay}"></TextBox>
+                    </Border>
+                </StackPanel>
+                <Button Height="25" Width="130" HorizontalAlignment="Right" Margin="0, 20, 20, 0"
+                        Name="btLogin"
+                        Background="#FFC3CFF6"  FontWeight="Bold" FontSize="14">Войти</Button>
+            </StackPanel>
+        </Border>
+        <userControls:CommandSender Margin="10,0"></userControls:CommandSender>
+    </StackPanel>
+</baseWindowNs:ViewBase>
